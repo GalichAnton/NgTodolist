@@ -7,9 +7,10 @@
       "@angular/*": [ "../node_modules/@angular/*" ],
       "@app/*": ["./src/app/*"],
       "@views/*": ["./src/app/views/*"],
-      "@components/*": ["./src/app/components/*"],
-      "@store/*": ["./src/app/store/*"],
-      "@services/*": ["./src/app/services/*"],
+      "@core/*": ["./src/app/core/*"],
+      "@todos/*": ["./src/app/todos/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@auth/*": ["./src/app/auth/*"],
       "@env/*": [
         "./src/environments/*"
       ]

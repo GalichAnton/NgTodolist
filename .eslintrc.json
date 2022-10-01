@@ -44,7 +44,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "inst",
+            "prefix": "todo",
             "style": "camelCase"
           }
         ],
@@ -52,7 +52,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "inst",
+            "prefix": "todo",
             "style": "kebab-case"
           }
         ]

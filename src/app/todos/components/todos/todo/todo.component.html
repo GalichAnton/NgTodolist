@@ -1,0 +1,35 @@
+<div class="todo">
+  <div class="todo__header">
+    <div class="todo__icons">
+      <mat-icon color="primary">alarm_on</mat-icon>
+      {{ todo.order }}
+    </div>
+    <div>
+      <mat-form-field *ngIf="isEditMode; else content" class="input" appearance="legacy">
+        <mat-label>Change title</mat-label>
+        <input
+          class="input"
+          matInput
+          placeholder="title"
+          [(ngModel)]="todo.title"
+          (blur)="changeTitleHandler()"
+        />
+      </mat-form-field>
+      <ng-template #content>
+        <p (dblclick)="toggleEditMode()" class="todo__title">{{ todo.title }}</p>
+        {{ todo.addedDate | date: 'dd/MM/yyyy' }}
+      </ng-template>
+    </div>
+    <div>
+      <button
+        mat-mini-fab
+        color="warn"
+        [ngStyle]="{ transform: 'scale(0.8)' }"
+        (click)="deleteTodoHandler()"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <todo-tasks [todoId]="todo.id"></todo-tasks>
+</div>

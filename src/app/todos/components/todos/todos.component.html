@@ -1,0 +1,29 @@
+<div class="form">
+  <mat-form-field class="input" appearance="outline">
+    <mat-label>Add todo</mat-label>
+    <input
+      class="input"
+      matInput
+      placeholder="Title"
+      [(ngModel)]="todoTitle"
+      (keyup.enter)="addTodoHandler()"
+    />
+    <mat-icon matSuffix>edit</mat-icon>
+  </mat-form-field>
+  <button
+    mat-mini-fab
+    color="primary"
+    [ngStyle]="{ transform: 'scale(0.8)' }"
+    (click)="addTodoHandler()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div class="todos">
+  <todo-todo
+    *ngFor="let todo of todos$ | async"
+    [todo]="todo"
+    (deleteTodoEvent)="deleteTodoHandler($event)"
+    (editTodoHandler)="editTodo($event)"
+  ></todo-todo>
+</div>

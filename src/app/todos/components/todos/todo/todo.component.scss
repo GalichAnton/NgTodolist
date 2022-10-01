@@ -1,0 +1,28 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  width: 300px;
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40px;
+    &__btn {
+      margin-left: 1rem;
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+  &__title {
+    font-size: 22px;
+    color: #551d8d;
+  }
+}
