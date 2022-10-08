@@ -31,5 +31,18 @@
       </button>
     </div>
   </div>
+  <mat-button-toggle-group
+    (change)="filterTasks($event)"
+    name="filterTasks"
+    class="custom-mat-button-toggle-group"
+  >
+    <mat-button-toggle [ngClass]="{ active: filter === 'all' }" value="all">All</mat-button-toggle>
+    <mat-button-toggle [ngClass]="{ active: filter === 'completed' }" value="completed" style=""
+      >Completed</mat-button-toggle
+    >
+    <mat-button-toggle [ngClass]="{ active: filter === 'active' }" value="active"
+      >Active</mat-button-toggle
+    >
+  </mat-button-toggle-group>
   <todo-tasks [todoId]="todo.id"></todo-tasks>
 </div>

@@ -1,5 +1,18 @@
-:host {
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all .3s ease-in-out;
+  &__checkbox {
+    margin-right: 10px;
+  }
+  &__completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
   &:hover {
     background-color: #eee;
   }
 }
+

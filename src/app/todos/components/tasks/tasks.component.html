@@ -1,12 +1,19 @@
-<mat-form-field appearance="legacy" style="width: 100%">
-  <mat-label>Enter task title</mat-label>
-  <input
-    matInput
-    placeholder="Learn Angular"
-    [formControl]="taskTitle"
-    required
-    (keyup.enter)="addTaskHandler()"
-  />
-  <mat-error *ngIf="taskTitle.invalid">You must enter a value</mat-error>
-</mat-form-field>
-<todo-task *ngFor="let task of tasks$ | async" [task]="task"></todo-task>
+<div class="input">
+  <mat-form-field appearance="legacy" style="width: 100%">
+    <mat-label>Enter task title</mat-label>
+    <input
+      matInput
+      placeholder="Learn Angular"
+      [formControl]="taskTitle"
+      required
+      (keyup.enter)="addTaskHandler()"
+    />
+    <mat-error *ngIf="taskTitle.invalid">You must enter a value</mat-error>
+  </mat-form-field>
+</div>
+<todo-task
+  *ngFor="let task of tasks$ | async"
+  [task]="task"
+  (removeTaskEvent)="removeTask($event)"
+  (changeTaskEvent)="changeTaskStatus($event)"
+></todo-task>

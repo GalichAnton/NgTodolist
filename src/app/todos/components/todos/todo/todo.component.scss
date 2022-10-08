@@ -26,3 +26,17 @@
     color: #551d8d;
   }
 }
+
+.custom-mat-button-toggle-group {
+  width: 100%;
+
+  mat-button-toggle {
+    flex-grow: 2;
+  }
+}
+
+.active {
+  background-color: #551d8d;
+  color: #fff;
+}
+

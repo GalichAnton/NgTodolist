@@ -1,11 +1,4 @@
-export interface TaskModel {
-  description: string;
-  title: string;
-  completed: boolean;
-  status: number;
-  priority: number;
-  startDate: string;
-  deadline: string;
+export interface TaskModel extends UpdateTaskModel {
   id: string;
   todoListId: string;
   order: number;
@@ -20,4 +13,14 @@ export interface TaskResponse {
 
 export interface DomainTask {
   [key: string]: TaskModel[];
+}
+
+export interface UpdateTaskModel {
+  description: string;
+  title: string;
+  completed: boolean;
+  status: number;
+  priority: number;
+  startDate: string;
+  deadline: string;
 }

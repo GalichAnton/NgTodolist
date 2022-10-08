@@ -1,1 +1,18 @@
-<p>login works!</p>
+<h1>Login page</h1>
+<form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="legacy" class="form__input">
+    <mat-label>Login</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="legacy" class="form__input">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+    <button mat-icon-button matSuffix (click)="hide = !hide">
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-checkbox formControlName="rememberMe" color="primary" class="form__input"
+    >Hide required marker</mat-checkbox
+  >
+  <button mat-raised-button color="primary">Primary</button>
+</form>

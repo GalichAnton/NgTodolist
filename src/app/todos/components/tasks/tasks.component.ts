@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { TaskModel } from '@todos/models/task.model';
+import { TaskModel, UpdateTaskModel } from '@todos/models/task.model';
 import { TasksService } from '@todos/services/tasks.service';
 import { map, Observable } from 'rxjs';
 
@@ -17,11 +17,19 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksService.getTasks(this.todoId);
-    this.tasks$ = this.tasksService.tasks$.pipe(map(tasks => tasks[this.todoId]));
+    this.tasks$ = this.tasksService.filteredTasks$.pipe(map(tasks => tasks[this.todoId]));
   }
 
   addTaskHandler() {
     this.tasksService.addTask({ todoId: this.todoId, title: this.taskTitle.value });
     this.taskTitle.setValue('');
+  }
+
+  removeTask(data: { taskId: string; todoId: string }) {
+    this.tasksService.removeTask(data);
+  }
+
+  changeTaskStatus(data: { taskId: string; todoId: string; model: UpdateTaskModel }) {
+    this.tasksService.updateTask(data);
   }
 }

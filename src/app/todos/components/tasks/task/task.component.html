@@ -1,1 +1,24 @@
-<div>{{ task.title }}</div>
+<div class="task">
+  <mat-checkbox
+    color="primary"
+    class="task__checkbox"
+    (change)="changeTaskStatus($event)"
+    [checked]="task.status === taskStatus.completed"
+  ></mat-checkbox>
+  <mat-form-field *ngIf="isEditMode; else content" class="input" appearance="legacy">
+    <mat-label>Change title</mat-label>
+    <input matInput placeholder="title" [(ngModel)]="task.title" (blur)="changeTitleHandler()" />
+  </mat-form-field>
+  <ng-template #content>
+    <p
+      (dblclick)="toggleEditMode()"
+      [ngClass]="{ task__completed: task.status === taskStatus.completed }"
+    >
+      {{ task.title }}
+    </p>
+  </ng-template>
+  <button color="accent" mat-icon-button (click)="removeTaskHandler()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+<mat-divider></mat-divider>

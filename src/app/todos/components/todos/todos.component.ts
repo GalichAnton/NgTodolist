@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@core/services/auth.service';
 import { Todo } from '@todos/models/todos.models';
 import { TodosService } from '@todos/services/todos.service';
 import { Observable } from 'rxjs';
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
-  constructor(private todoService: TodosService) {}
+  constructor(private todoService: TodosService, private authService: AuthService) {}
 
   todos$!: Observable<Todo[]>;
   todoTitle = '';
@@ -30,5 +31,9 @@ export class TodosComponent implements OnInit {
 
   editTodo(data: { todoId: string; title: string }) {
     this.todoService.editTodoTitle(data);
+  }
+
+  logoutHandler() {
+    this.authService.logout();
   }
 }

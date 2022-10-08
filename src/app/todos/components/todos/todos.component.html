@@ -19,6 +19,7 @@
     <mat-icon>add</mat-icon>
   </button>
 </div>
+<button mat-raised-button color="warn" (click)="logoutHandler()">Logout</button>
 <div class="todos">
   <todo-todo
     *ngFor="let todo of todos$ | async"
